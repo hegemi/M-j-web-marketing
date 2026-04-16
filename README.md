@@ -3,125 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-mailový Magnet | Tvůj Název</title>
+    <title>Továrna na kontakty | E-mailový Magnet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Definice barev - můžeš si ten kód barvy upravit (tato je tmavě zelená) */
         :root {
-            --hlavni-zelena: #0f3d2e; 
-            --svetle-zelena: #1a5c45;
-            --zlata: #c5a059;
-            --bila: #ffffff;
+            --pozadi: #0a2c21; /* Tmavá profi zelená ze vzoru */
+            --zlata: #d4af37;
+            --text: #ffffff;
         }
 
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: var(--hlavni-zelena); /* Sjednocené pozadí */
-            color: var(--bila);
-        }
-
-        .hero-section {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--pozadi);
+            color: var(--text);
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            padding: 2rem;
-            text-align: center;
         }
 
-        @media (min-width: 768px) {
-            .hero-section {
-                flex-direction: row;
-                text-align: left;
-                max-width: 1100px;
-                margin: 0 auto;
-            }
+        .wrapper {
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 40px;
+            align-items: center;
         }
 
-        .content-left {
-            flex: 1;
-            padding: 1rem;
-        }
-
-        .content-right {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            padding: 1rem;
+        /* Mobilní verze - pod sebou */
+        @media (max-width: 768px) {
+            .wrapper { grid-template-columns: 1fr; text-align: center; }
+            .book-img { order: -1; padding: 0 40px; } /* Kniha nahoře s větším paddingem */
         }
 
         h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--bila);
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
-        h1 span {
-            color: var(--zlata);
-        }
+        span.highlight { color: var(--zlata); }
 
         p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
             opacity: 0.9;
         }
 
-        /* Styl pro 3D knihu */
-        .book-mockup {
-            width: 100%;
-            max-width: 350px;
-            height: auto;
-            filter: drop-shadow(20px 20px 30px rgba(0,0,0,0.5));
-            border-radius: 5px;
-        }
-
-        /* Formulář / Tlačítko */
-        .cta-button {
-            display: inline-block;
+        .btn {
             background-color: var(--zlata);
-            color: var(--hlavni-zelena);
-            padding: 18px 35px;
+            color: #000;
+            padding: 20px 40px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 1.1rem;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
-        .cta-button:hover {
-            transform: scale(1.05);
-            background-color: #d4b475;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+            filter: brightness(1.1);
         }
 
-        .footer-note {
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
-            opacity: 0.6;
+        /* Styl pro zobrazení knihy */
+        .book-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .book-img img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            /* Triky pro oříznutí šedého pozadí */
+            object-fit: cover;
+            border-radius: 5px;
+            /* Stín, který splyne s novým zeleným pozadím */
+            filter: drop-shadow(0px 10px 30px rgba(0,0,0,0.5));
+            /* Jemné zvětšení ořezu, aby zmizely hrany šedého mockupu */
+            transform: scale(1.02);
         }
     </style>
 </head>
 <body>
 
-    <section class="hero-section">
-        <div class="content-left">
-            <h1>Získejte <span>E-mailový Magnet</span> a nastartujte svůj byznys hned teď</h1>
-            <p>Objevte strategii, kterou používají špičky v oboru pro sběr kontaktů a automatizaci prodeje. Praktický návod, který můžete aplikovat ještě dnes.</p>
-            
-            <a href="#" class="cta-button">CHCI MAGNET ZDARMA</a>
-            
-            <div class="footer-note">
-                * Vaše data jsou u nás v bezpečí. Žádný spam, jen hodnotný obsah.
-            </div>
+    <div class="wrapper">
+        <div class="content">
+            <h1>Spusťte svou <span class="highlight">Továrnu na kontakty</span> a prodávejte víc</h1>
+            <p>Získejte praktický e-book, který vás naučí, jak proměnit návštěvníky webu v loajální zákazníky. Kompletní návod na sběr a správu kontaktů.</p>
+            <a href="#" class="btn">Chci e-book hned teď zdarma</a>
         </div>
-
-        <div class="content-right">
-            <img src="https://via.placeholder.com/400x550/1a5c45/ffffff?text=VAŠE+KNIHA" alt="E-mailový Magnet" class="book-mockup">
+        <div class="book-img">
+            <img src="kniha.png" alt="Továrna na kontakty - E-book">
         </div>
-    </section>
+    </div>
 
 </body>
 </html>
